@@ -1,0 +1,134 @@
+/*设置图片轮播样式
+像素单位：不使用px(物理像素)，使用rpx
+rpx:根据屏幕的大小自适应取值
+iphone5:1px = 0.42rpx;
+iphone6:1px = 0.5rpx;
+*/
+.imageContainer{
+  width: 100%;
+  height: 300rpx;
+  background: red;
+}
+/*对swipper中的图片设置样式*/
+.imageContainer image{
+  width: 100%;
+  height: 100%;
+}
+/*对歌曲列表做样式设置*/
+.musicContainer{
+  width: 100%;
+  height: 150rpx;
+  background: #222;
+  /*上外边距*/
+  margin-top: 10rpx;
+  /*弹性盒子布局：全程---》flexible box */
+  /*给父容器设置弹性盒子布局，子容器会自动分配父容器的空间
+    横向为主轴，竖直方向叫交叉轴，默认以主轴方向为基准分配空间
+  */
+  display: flex;
+  border:#ff5384 solid 1px;
+}
+.left{
+  width: 150rpx;
+  height: 150rpx;
+  /* background: red; */
+}
+/*调整封面图片大小*/
+.left image{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 5rpx;
+  /*边框圆角化*/
+  border-radius: 8%;
+}
+.center{
+  width: 450rpx;
+  height: 150rpx;
+  position: relative;
+  /* background: green; */
+  /* border-left: #ff5384 solid 1px; */
+}
+/*歌曲名样式设置*/
+.songName{
+  color: white;
+  font-size: 42rpx;
+  /* 设置左内边距 */
+  padding-left: 24rpx;
+  /* margin-top: 20rpx; */
+  width: 450rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  overflow: hidden;
+}
+/* 歌手名称样式设置 */
+.singerName{
+  color: white;
+  font-size: 30rpx;
+  /* 设置左内边距 */
+  padding-left: 24rpx;
+  margin-top: 0rpx;
+  width: 450rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  overflow: hidden;
+}
+.right{
+  width: 150rpx;
+  height: 150rpx;
+  /* background: yellow; */
+}
+/*播放按钮*/
+.right image{
+  width: 120rpx;
+  height: 120rpx;
+  /*上下左右外边距都为150rpx*/
+  margin: 15rpx;
+}
+/*搜索框样式*/
+.search_area{
+  width: 100%;
+  height: 110rpx;
+  background: red;
+  /*弹性盒子布局*/
+  display: flex;
+  margin-top: 5rpx;
+}
+/*存放input的view*/
+.search_input{
+  width: 590rpx;
+  height: 110rpx;
+  background: white;
+}
+/*调整input框样式*/
+.search_input input{
+  width: 568rpx;
+  height: 105rpx;
+  /*调整input框内边距*/
+  padding-left: 20rpx;
+  /*添加边框*/
+  border:red solid 1rpx;
+}
+/*存放button的view*/
+.search_button{
+  width: 158rpx;
+  height: 110rpx;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 110rpx;
+  color: white;
+  background: #ff5384;
+}
+/*mv样式*/
+.mv{
+  width: 80rpx;
+  height: 80rpx;
+  /* background: red; */
+  position: absolute;
+  right: 0rpx;
+  top: 20rpx;
+}
+.mv image{
+  width: 100%;
+  height: 100%;
+}
+

@@ -1,0 +1,6 @@
+<view class='user' style="background-image:url('/images/bg.png')">
+  <view class="user-image">
+    <image src="{{user.avatarUrl}}"></image>
+  </view>
+  <view class='nickname'>{{user.nickName}}</view>
+</view>

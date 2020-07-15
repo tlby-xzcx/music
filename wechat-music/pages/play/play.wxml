@@ -1,0 +1,88 @@
+<!-- 设置一个大容器，跟屏幕一样大小 -->
+<view class='content'>
+  <!-- 整个播放页面的背景图片 -->
+  <image class='big_img' src="{{song.album.picUrl}}"></image>
+  <!-- 歌曲名称 -->
+  <view class='title'>{{song.name}}</view>
+  <!-- 中间区域：封面、歌词 -->
+  <view class='middle'>
+    <swiper class='middle-swipper'>
+       <!--封面 -->
+      <swiper-item class="cd-wrapper">
+        <view class='cd-image'>
+          <!-- 动画的执行状态       
+          animation-play-state取值只有两种，一个是running(运行)，一个是paused(暂停)-->
+          <image style="animation-play-state:{{state=='play'?'running':'paused'}}" src="{{song.album.picUrl}}"></image>
+        </view>
+      </swiper-item>
+      <!-- 歌词滚动区域 -->
+      <swiper-item>
+        <!-- 使用可以滚动的scroll-view
+          scroll-y：设置纵向滚动
+          scroll-top:竖向滚动条的位置
+          scroll-with-animation:动画过度效果
+         -->
+        <scroll-view class='lyric-wrapper' scroll-y="true" scroll-with-animation="true" scroll-top="{{marginTop}}">
+        <!--contentArray:存放所有歌词  -->
+          <view class='contentArray'>
+            <block wx:for="{{lyricArray}}" wx:for-item="lyric" wx:for-index="index">
+            <!-- 三元运算符 
+              比较当前正在播放的行号跟歌词下标是否一致,一致变红,不一致默认样式
+            -->
+              <text class="{{currentIndex==index?'currentLyric':''}}">{{lyric[1]}}</text> 
+            </block>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 进度条 -->
+  <view class='progress'>
+    <!-- 播放时间 -->
+    <view class='play_time'>{{playTime}}</view>
+    <!-- 进度条标签 -->
+    <!-- block-size:滑块大小
+        backgroundColor：背景颜色
+        activeColor：选中颜色
+        value:进度条读取的值
+        进度条的默认最小值是0，最大值是100
+
+        使用进度条的最大值来存储当前歌曲的总时长(秒钟)，value是当前播放进度
+        总时长：180秒    max设置为180秒
+        比如当前播放进度为100秒   value值就 设置为100秒
+        bindchange：进度条拖动会执行的方法
+     -->
+    <slider backgroundColor="#fff" bindchange="tuoDong" value="{{move}}" activeColor="#c20c0c" block-size="14" max="{{max}}"></slider>
+    <!-- 歌曲总时长 -->
+    <view class='end_time'>{{endTime}}</view>
+  </view>
+  <!-- 控制按钮 -->
+  <view class='controls'>
+    <!-- 点击切换播放模式 -->
+    <image bindtap='changeMode' src="/images/{{mode=='single'?'single':'loop'}}.png"></image>
+    <!-- 点击切换上一首 -->
+    <image bindtap='prevSong' src='/images/prev.png'></image>
+    <!-- 两种图片：1、暂停图片(暂停状态)    2、播放图片(播放状态) -->
+    <!-- 添加点击事件 -->
+    <!-- 三元运算符
+        boolean类型表达式?结果1:结果2    解释：boolean结果为true，去结果1，结果为false，取结果2
+        例子： 3>2?"嘻嘻":"嘿嘿"
+              state=="播放"?"播放图片":"暂停图片"
+              '/images/play.png'
+              '/images/pause.png'
+     -->
+    <image bindtap='playOrPause' src="/images/{{state=='play'?'pause':'play'}}.png"></image>
+    <!-- 点击切换下一首 -->
+    <image bindtap='nextSong' src='/images/next.png'></image>
+    <!-- 心形图片 -->
+    <image src="/images/xin.png"></image>
+  </view>
+</view>
+<!-- 播放音频的标签 
+  src:音频路径   
+  audio标签只有method设置为play时才能播放,设置为pause代表暂停
+  bindtimeupdate:当播放进度改变时触发,执行changeTime方法
+  bindended：歌曲播放到末尾时触发执行的方法
+-->
+<audio bindended="changeMusic" wx:if="http://music.163.com/song/media/outer/url?id={{id}}.mp3" action="{{action}}" bindtimeupdate="changeTime"
+src="http://music.163.com/song/media/outer/url?id={{id}}.mp3"></audio>

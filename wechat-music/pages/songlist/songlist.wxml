@@ -1,0 +1,88 @@
+<!-- 使用swipper轮播图组件 
+circular：采用衔接滑动
+interval：时间间隔
+-->
+<swiper  class="imageContainer" indicator-dots="true" 
+indicator-color="yellow" 
+indicator-active-color="purple"
+autoplay="true"
+interval="3000"
+circular="true">
+  <block wx:for="{{imgUrls}}" wx:for-item="imgOne">
+    <swiper-item>
+    <!-- 图片标签 -->
+      <image src="{{imgOne}}"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 搜索框 -->
+<view class='search_area'>
+  <view class='search_input'>
+    <!-- input框的失去焦点(bindblur)、聚集焦点(bindfocus)的方法
+      bindinput:输入框内容改变就会触发
+     -->
+    <input bindinput='getKeyword' type='text'></input>
+  </view>
+  <view class='search_button' bindtap='do_search'>
+    搜索
+  </view>
+</view>
+
+<!-- 使用微信for循环遍历所有歌曲 
+    移动代码快捷键：alt+上下箭头
+-->
+<block wx:for="{{songs}}" wx:for-item="song" wx:for-index="i">
+  <view class='musicContainer'>
+    <!-- 左边封面 -->
+    <view class='left'>
+      <image wx:if="{{albumPicUrls[i]}}" src='{{albumPicUrls[i]}}'>
+      </image>
+    </view>
+    <!-- 中间歌曲信息 -->
+    <view class='center'>
+      <view class='songName'>{{song.name}}</view>
+      <view class='singerName'>{{song.artists[0].name}}-《{{song.album.name}}》</view>
+      <!-- mvid为-1时，代表没有对应的mv，所以mv图标不显示 -->
+      <view class='mv' wx:if="{{mvs[i]!=-1}}">
+        <!-- 点击图标播放mv    将被点击mv的id传递到方法中-->
+        <image bindtap='playMv' src="/images/mv3.png" data-mvid="{{mvs[i]}}"></image>
+      </view>
+    </view>
+    <!-- 右边播放按钮 -->
+    <view class='right'>
+      <!-- 给图片添加点击事件 
+        点击图片执行gotoplay方法
+
+        小程序传参数都是通过data传参
+      -->
+      <image bindtap='gotoPlay' src='/images/play.png' data-id="{{song.id}}"></image>
+    </view>
+  </view>
+
+</block>
+<!-- <view class='musicContainer'>
+  <view class='left'>
+    <image src='https://p2.music.126.net/CkWClbTCbem2yqsbBZZKtg==/109951164023183778.jpg'>
+    </image>
+  </view>
+  <view class='center'>
+    <view class='songName'>只因你太美</view>
+    <view class='singerName'>蔡徐坤-《只因你太美》</view>
+  </view>
+  <view class='right'>
+    <image src='/images/play.png'></image>
+  </view>
+</view>
+<view class='musicContainer'>
+  <view class='left'>
+    <image src='https://p1.music.126.net/JIc9X91OSH-7fUZqVfQXAQ==/7731765766799133.jpg'>
+    </image>
+  </view>
+  <view class='center'>
+    <view class='songName'>See you Again</view>
+    <view class='singerName'>Charlie Puth-《速度与激情7》</view>
+  </view>
+  <view class='right'>
+    <image src='/images/play.png'></image>
+  </view>
+</view> -->
