@@ -1,1 +1,8 @@
 /* pages/mv/mv.wxss */
+
+.mv-play{
+  width: 100%
+}
+.mv-play video{
+  width: 100%
+}

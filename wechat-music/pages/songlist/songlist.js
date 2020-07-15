@@ -6,11 +6,7 @@ Page({
    */
   data: {
     //定义图片数组
-    imgUrls: [
-      'http://p1.music.126.net/XyOsH9i6nO3tyiV4xzTzEA==/109951164218412778.jpg',
-      'http://p1.music.126.net/f5KCVtAf1JOgKMtgPQZy4A==/109951164218427420.jpg',
-      'http://p1.music.126.net/kf7c_L6sEFJvywB9QrdIhQ==/109951164218484097.jpg'
-    ],
+    imgUrls: [],
     //定义变量存储搜索关键字
     kw:"",
     //定义歌曲数组存储搜索结果
@@ -208,7 +204,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.request({
+      url: 'http://47.104.209.44:3333/banner',
+      success: res => {
+        //搜索结果
+        console.log(res);
+        var banners = res.data.banners;
+        this.setData({
+          imgUrls: banners
+        })
+      }
+    })
   },
 
   /**

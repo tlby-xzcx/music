@@ -1,1 +1,4 @@
-<video src="{{mvAddress}}"></video>
+
+<view class="mv-play">
+ <video src="{{mvAddress}}"></video>
+</view>

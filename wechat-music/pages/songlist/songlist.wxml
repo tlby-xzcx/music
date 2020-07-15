@@ -8,10 +8,10 @@ indicator-active-color="purple"
 autoplay="true"
 interval="3000"
 circular="true">
-  <block wx:for="{{imgUrls}}" wx:for-item="imgOne">
+  <block wx:for="{{imgUrls}}" wx:key="index">
     <swiper-item>
     <!-- 图片标签 -->
-      <image src="{{imgOne}}"/>
+      <image src="{{item.imageUrl}}"/>
     </swiper-item>
   </block>
 </swiper>
