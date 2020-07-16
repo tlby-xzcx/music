@@ -75,7 +75,7 @@
     <!-- 点击切换下一首 -->
     <image bindtap='nextSong' src='/images/next.png'></image>
     <!-- 心形图片 -->
-    <image src="/images/wlist.png"></image>
+    <image src="/images/xin.png"></image>
   </view>
 </view>
 <!-- 播放音频的标签 

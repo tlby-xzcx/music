@@ -27,6 +27,8 @@ Page({
    */
   onLoad: function (options) {
     console.log("页面加载");
+
+   
   },
 
   /**
@@ -206,12 +208,12 @@ Page({
   onShow: function () {
     wx.request({
       url: 'http://47.104.209.44:3333/banner',
-      success: res => {
+      success: res=> {
         //搜索结果
         console.log(res);
-        var banners = res.data.banners;
+       
         this.setData({
-          imgUrls: banners
+          imgUrls:res.data.banners
         })
       }
     })

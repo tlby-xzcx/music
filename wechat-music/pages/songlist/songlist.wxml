@@ -3,12 +3,12 @@ circular：采用衔接滑动
 interval：时间间隔
 -->
 <swiper  class="imageContainer" indicator-dots="true" 
-indicator-color="yellow" 
-indicator-active-color="purple"
+indicator-color="#fff" 
+indicator-active-color="#1296db"
 autoplay="true"
 interval="3000"
 circular="true">
-  <block wx:for="{{imgUrls}}" wx:key="index">
+  <block wx:for="{{imgUrls}}">
     <swiper-item>
     <!-- 图片标签 -->
       <image src="{{item.imageUrl}}"/>
@@ -55,7 +55,7 @@ circular="true">
 
         小程序传参数都是通过data传参
       -->
-      <image bindtap='gotoPlay' src='/images/play.png' data-id="{{song.id}}"></image>
+      <image bindtap='gotoPlay' src='/images/more.png' data-id="{{song.id}}"></image>
     </view>
   </view>
 

@@ -3,36 +3,30 @@
     "pages/songlist/songlist",
     "pages/my/my",
     "pages/play/play",
-    "pages/mv/mv",
-    "pages/find/find"
+    "pages/mv/mv"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "my-music",
+    "navigationBarBackgroundColor":"#1296db",
+    "navigationBarTitleText": "网易云音乐",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "black",
-    "selectedColor": "#1296db",
+    "selectedColor": "#c20c0c",
     "list": [
       {
         "pagePath": "pages/songlist/songlist",
-        "text": "首页",
-        "iconPath": "/images/home.png",
-        "selectedIconPath": "/images/homeactive.png"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "text": "发现",
-        "iconPath": "/images/musicc.png",
-        "selectedIconPath": "/images/musiccactive.png"
+        "text": "歌曲列表",
+        "iconPath": "/images/music.png",
+        
+        "selectedIconPath": "/images/music-active.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "个人信息",
-        "iconPath": "/images/center.png",
-        "selectedIconPath": "/images/centeractive.png"
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my-active.png"
       }
     ]
   },

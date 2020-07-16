@@ -7,7 +7,7 @@ iphone6:1px = 0.5rpx;
 .imageContainer{
   width: 100%;
   height: 300rpx;
-  background: red;
+  background: #fff;
 }
 /*对swipper中的图片设置样式*/
 .imageContainer image{
@@ -17,8 +17,8 @@ iphone6:1px = 0.5rpx;
 /*对歌曲列表做样式设置*/
 .musicContainer{
   width: 100%;
-  height: 150rpx;
-  background: #222;
+  height: 120rpx;
+  background: #fff;
   /*上外边距*/
   margin-top: 10rpx;
   /*弹性盒子布局：全程---》flexible box */
@@ -26,7 +26,8 @@ iphone6:1px = 0.5rpx;
     横向为主轴，竖直方向叫交叉轴，默认以主轴方向为基准分配空间
   */
   display: flex;
-  border:#ff5384 solid 1px;
+  border:#fff solid 1px;
+  /* box-shadow: 10rpx 10rpx 5rpx #888888; */
 }
 .left{
   width: 150rpx;
@@ -35,9 +36,9 @@ iphone6:1px = 0.5rpx;
 }
 /*调整封面图片大小*/
 .left image{
-  width: 140rpx;
-  height: 140rpx;
-  margin: 5rpx;
+  width: 119rpx;
+  height: 86rpx;
+  margin: 19rpx;
   /*边框圆角化*/
   border-radius: 8%;
 }
@@ -50,19 +51,19 @@ iphone6:1px = 0.5rpx;
 }
 /*歌曲名样式设置*/
 .songName{
-  color: white;
-  font-size: 42rpx;
+  color: #000;
+  font-size: 30rpx;
   /* 设置左内边距 */
-  padding-left: 24rpx;
+  padding-left: 21rpx;
   /* margin-top: 20rpx; */
   width: 450rpx;
-  height: 75rpx;
-  line-height: 75rpx;
+  height: 49rpx;
+  line-height: 72rpx;
   overflow: hidden;
 }
 /* 歌手名称样式设置 */
 .singerName{
-  color: white;
+  color: #000;
   font-size: 30rpx;
   /* 设置左内边距 */
   padding-left: 24rpx;
@@ -79,44 +80,50 @@ iphone6:1px = 0.5rpx;
 }
 /*播放按钮*/
 .right image{
-  width: 120rpx;
-  height: 120rpx;
+  width: 66rpx;
+  height: 66rpx;
   /*上下左右外边距都为150rpx*/
-  margin: 15rpx;
+  margin: 35rpx;
+
 }
 /*搜索框样式*/
 .search_area{
   width: 100%;
-  height: 110rpx;
-  background: red;
+  height: 92rpx;
+  background: #1296db;
   /*弹性盒子布局*/
   display: flex;
-  margin-top: 5rpx;
+  overflow: hidden;
+  margin-top: 4rpx;
+  /* border-radius: 20rpx; */
+  padding: 7rpx;
 }
 /*存放input的view*/
 .search_input{
   width: 590rpx;
-  height: 110rpx;
+  height: 89rpx;
   background: white;
+  margin-top: 1rpx;
 }
 /*调整input框样式*/
 .search_input input{
   width: 568rpx;
-  height: 105rpx;
+  height: 90rpx;
   /*调整input框内边距*/
   padding-left: 20rpx;
   /*添加边框*/
-  border:red solid 1rpx;
+  border:#1296db solid 1rpx;
+  
 }
 /*存放button的view*/
 .search_button{
-  width: 158rpx;
-  height: 110rpx;
+  width: 100%;
+  height: 90rpx;
   font-size: 40rpx;
   text-align: center;
-  line-height: 110rpx;
+  line-height: 89rpx;
   color: white;
-  background: #ff5384;
+  background: #1296db;
 }
 /*mv样式*/
 .mv{
@@ -128,7 +135,8 @@ iphone6:1px = 0.5rpx;
   top: 20rpx;
 }
 .mv image{
-  width: 100%;
-  height: 100%;
+  width: 66rpx;
+  height: 66rpx;
+  margin:15rpx;
 }
 
